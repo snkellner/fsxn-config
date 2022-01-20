@@ -35,7 +35,7 @@ resource "aws_fsx_ontap_storage_virtual_machine" "svm_demo01" {
   name           = "${var.svm_name}01"
 
   active_directory_configuration {
-    netbios_name = "${var.netbios_name}01"
+    netbios_name = var.fs_name
     self_managed_active_directory_configuration {
       dns_ips     = var.dns_ips
       domain_name = var.domain_name
@@ -79,7 +79,7 @@ resource "aws_fsx_ontap_storage_virtual_machine" "svm_demo02" {
   name           = "${var.svm_name}02"
 
   active_directory_configuration {
-    netbios_name = "${var.netbios_name}02"
+    netbios_name = var.fs_name
     self_managed_active_directory_configuration {
       dns_ips     = var.dns_ips
       domain_name = var.domain_name

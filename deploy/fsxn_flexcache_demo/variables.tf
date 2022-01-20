@@ -39,11 +39,6 @@ variable "svm_name" {
   type        = string
 }
 
-variable "netbios_name" {
-  description = "Name of cifs machine account"
-  type        = string
-}
-
 variable "dns_ips" {
   description = "Array of IPs for nameservers"
   type        = list(string)
