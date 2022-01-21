@@ -18,7 +18,7 @@
         state: absent
         source_cluster_name: "{{ src_ontap }}"
         dest_cluster_name: "{{ dst_ontap }}"
-        hostname: "{{ src_ontap }}"
+        hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
         peer_options:
