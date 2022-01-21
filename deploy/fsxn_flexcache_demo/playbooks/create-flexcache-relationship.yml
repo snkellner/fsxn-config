@@ -31,7 +31,7 @@
       na_ontap_vserver_peer:
         state: present
         peer_vserver: "{{ dst_vserver }}"
-        peer_cluster: "{{ dst_name }}"
+        peer_cluster: "{{ peer_cluster }}"
         vserver: "{{ src_vserver }}"
         applications: flexcache
         hostname: "{{ src_ontap }}"

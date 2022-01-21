@@ -13,3 +13,4 @@ dst_name: skdemo02
 dst_lif: "10.0.4.180,10.0.5.160"
 dst_vserver: "svm_{{ dst_name }}"
 passphrase: IamAp483p45a83
+peer_cluster: "fs-09ad7e90b55467e88"
