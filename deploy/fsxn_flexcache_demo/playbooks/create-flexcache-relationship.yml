@@ -19,7 +19,7 @@
         source_intercluster_lifs: "{{ src_lif }}"
         dest_intercluster_lifs: "{{ dst_lif }}"
         passphrase: "{{ passphrase }}"
-        hostname: "{{ src_ontap }}"
+        hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
         peer_options:

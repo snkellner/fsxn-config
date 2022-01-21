@@ -1,14 +1,14 @@
 # cluster management and credentials to access the instances
-netapp_hostname: "198.19.254.212"
+netapp_hostname: "198.19.254.99"
 netapp_username: "fsxadmin"
 netapp_password: "Netapp1!"
 
 # Variables to create snapmirror
-src_ontap: "{{ netapp_hostname }}"
+src_ontap: 198.19.254.212
 src_name: skdemo01
 src_lif: "10.0.4.133,10.0.5.128"
 src_vserver: "svm_{{ src_name }}"
-dst_ontap: 198.19.254.99
+dst_ontap: {{ netapp_hostname }}
 dst_name: skdemo02
 dst_lif: "10.0.4.180,10.0.5.160"
 dst_vserver: "svm_{{ dst_name }}"
