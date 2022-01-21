@@ -22,5 +22,5 @@
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
         peer_options:
-          hostname: "{{ peer_cluster }}"
+          hostname: "{{ dst_ontap }}"
 
