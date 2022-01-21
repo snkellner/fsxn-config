@@ -22,7 +22,9 @@
         hostname: "{{ src_ontap }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        dest_hostname: "{{ dst_ontap }}"
+        peer_options:
+          hostname: "{{ dst_ontap }}"
+        encryption_protocol_proposed: tls_psk
         https: true
         validate_certs: false
     - name: Source vserver peer create
