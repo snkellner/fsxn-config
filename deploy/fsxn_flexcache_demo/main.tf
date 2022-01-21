@@ -32,10 +32,10 @@ resource "aws_fsx_ontap_file_system" "skellnerdemo01" {
 
 resource "aws_fsx_ontap_storage_virtual_machine" "svm_demo01" {
   file_system_id = aws_fsx_ontap_file_system.skellnerdemo01.id
-  name           = "${var.svm_name}01"
+  name           = "svm_${var.fs_name}01"
 
   active_directory_configuration {
-    netbios_name = var.fs_name
+    netbios_name = "${var.fs_name}01"
     self_managed_active_directory_configuration {
       dns_ips     = var.dns_ips
       domain_name = var.domain_name
@@ -76,10 +76,10 @@ resource "aws_fsx_ontap_file_system" "skellnerdemo02" {
 
 resource "aws_fsx_ontap_storage_virtual_machine" "svm_demo02" {
   file_system_id = aws_fsx_ontap_file_system.skellnerdemo02.id
-  name           = "${var.svm_name}02"
+  name           = "svm_${var.fs_name}02"
 
   active_directory_configuration {
-    netbios_name = var.fs_name
+    netbios_name = "${var.fs_name}02"
     self_managed_active_directory_configuration {
       dns_ips     = var.dns_ips
       domain_name = var.domain_name
