@@ -37,6 +37,6 @@
         hostname: "{{ src_ontap }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
-        dest_hostname: "{{ dst_ontap }}"
+        dest_hostname: "{{ peer_cluster }}"
         https: true
         validate_certs: false
