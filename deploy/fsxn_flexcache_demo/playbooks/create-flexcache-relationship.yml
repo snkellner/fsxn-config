@@ -20,8 +20,8 @@
         dest_intercluster_lifs: "{{ dst_lif }}"
         passphrase: "{{ passphrase }}"
         hostname: "{{ src_ontap }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        username: "{{ netapp_username }}"
+        password: "{{ netapp_password }}"
         peer_options:
           hostname: "{{ dst_ontap }}"
         encryption_protocol_proposed: tls_psk
@@ -35,8 +35,8 @@
         vserver: "{{ src_vserver }}"
         applications: flexcache
         hostname: "{{ src_ontap }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        username: "{{ netapp_username }}"
+        password: "{{ netapp_password }}"
         dest_hostname: "{{ dst_ontap }}"
         https: true
         validate_certs: false
