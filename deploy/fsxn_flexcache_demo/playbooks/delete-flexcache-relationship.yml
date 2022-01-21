@@ -16,14 +16,11 @@
     - name: Delete cluster peer
       na_ontap_cluster_peer:
         state: absent
-        source_intercluster_lifs: "{{ src_lif }}"
-        dest_intercluster_lifs: "{{ dst_lif }}"
-        passphrase: "{{ passphrase }}"
-        hostname: "{{ src_ontap }}"
+        source_cluster_name: "{{ source_cluster_name }}"
+        dest_cluster_name: "{{ peer_cluster }}"
+        hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
         peer_options:
-          hostname: "{{ dst_ontap }}"
-        encryption_protocol_proposed: tls_psk
-        https: true
-        validate_certs: false
+          hostname: "{{ peer_cluster }}"
+
