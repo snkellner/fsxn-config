@@ -8,7 +8,6 @@
       password:       "{{ netapp_password }}"
       https:          true
       validate_certs: false
-      use_rest: "always"
   vars_files:
     - var_demo.yml
   collections:
@@ -20,6 +19,7 @@
         peer_vserver: "{{ dst_vserver }}"
         vserver: "{{ src_vserver }}"
         <<: *ontap
+        use_rest: "never"
     - name: Delete cluster peer
       na_ontap_cluster_peer:
         state: absent
@@ -28,3 +28,4 @@
         peer_options:
           hostname: "{{ dst_ontap }}"
         <<: *ontap
+
