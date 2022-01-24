@@ -1,0 +1,27 @@
+- hosts: localhost
+  name: Snapmirror Create
+  gather_facts: false
+  vars:
+    ontap: &ontap
+      hostname:       "{{ dst_ontap }}"
+      username:       "{{ netapp_username }}"
+      password:       "{{ netapp_password }}"
+      https:          true
+      validate_certs: false
+  vars_files:
+    - var_demo.yml
+  collections:
+    - netapp.ontap
+  tasks:
+    - name: Create FlexCache
+      na_ontap_flexcache:
+        state: present
+        origin_volume: test_src
+        name: test_dest
+        size: "{{ flexcache_size_gb }}"
+        size_unit: "gb"
+        prepopulate:
+          dir_paths: "/{{ name }}"
+        origin_vserver: "{{ src_vserver }}"
+        vserver: "{{ dst_vserver }}"
+        <<: *ontap
