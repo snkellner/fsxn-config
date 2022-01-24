@@ -22,12 +22,7 @@
         peer_options:
           hostname: "{{ dst_ontap }}"
         encryption_protocol_proposed: tls_psk
-        # hostname: "{{ src_ontap }}"
-        # username: "{{ netapp_username }}"
-        # password: "{{ netapp_password }}"
         <<: *ontap
-        # https: true
-        # validate_certs: false
     - name: Source vserver peer create
       na_ontap_vserver_peer:
         state: present
@@ -35,12 +30,8 @@
         peer_cluster: "{{ peer_cluster }}"
         vserver: "{{ src_vserver }}"
         applications: ['flexcache']
+        local_name_for_peer: "{{ dst_vserver }}"
+        local_name_for_source: "{{ src_vserver }}"       
         peer_options:
           hostname: "{{ dst_ontap }}"
         <<: *ontap
-        # hostname: "{{ src_ontap }}"
-        # username: "{{ netapp_username }}"
-        # password: "{{ netapp_password }}"
-        # dest_hostname: "{{ peer_cluster }}"
-        # https: true
-        # validate_certs: false
