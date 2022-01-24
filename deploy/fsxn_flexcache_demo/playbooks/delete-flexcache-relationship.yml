@@ -1,5 +1,5 @@
 - hosts: localhost
-  name: Snapmirror Create
+  name: Remove Flexcache Relationship
   gather_facts: false
   vars:
     ontap: &ontap
@@ -13,14 +13,17 @@
   collections:
     - netapp.ontap
   tasks:
+    - name: Delete vserver peer
+      na_ontap_vserver_peer:
+        state: absent
+        peer_vserver: "{{ dst_vserver }}"
+        vserver: "{{ src_vserver }}"
+        <<: *ontap
     - name: Delete cluster peer
       na_ontap_cluster_peer:
         state: absent
-        source_cluster_name: "{{ src_ontap }}"
-        dest_cluster_name: "{{ dst_ontap }}"
-        hostname: "{{ netapp_hostname }}"
-        username: "{{ netapp_username }}"
-        password: "{{ netapp_password }}"
+        source_cluster_name: "{{ src_cluster }}"
+        dest_cluster_name: "{{ peer_cluster }}"
         peer_options:
           hostname: "{{ dst_ontap }}"
-
+        <<: *ontap

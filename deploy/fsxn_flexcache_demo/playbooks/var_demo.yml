@@ -8,6 +8,7 @@ src_ontap: "{{ netapp_hostname }}"
 src_name: skdemo01
 src_lif: "10.0.4.8,10.0.5.85"
 src_vserver: "svm_{{ src_name }}"
+src_cluster: "FsxId0e711a91c5abe695c"
 dst_ontap: "198.19.254.66"
 dst_name: skdemo02
 dst_lif: "10.0.4.85,10.0.5.96"
