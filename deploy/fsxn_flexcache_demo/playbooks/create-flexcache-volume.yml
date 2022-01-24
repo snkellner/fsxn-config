@@ -1,5 +1,5 @@
 - hosts: localhost
-  name: Snapmirror Create
+  name: Setup Flexcache
   gather_facts: false
   vars:
     ontap: &ontap
@@ -20,6 +20,7 @@
         name: "{{ flexcache_volume }}"
         size: "{{ flexcache_size_gb }}"
         size_unit: "gb"
+        aggr_list: "aggr1"
         prepopulate:
           dir_paths: "/{{ flexcache_volume }}"
         origin_vserver: "{{ src_vserver }}"
