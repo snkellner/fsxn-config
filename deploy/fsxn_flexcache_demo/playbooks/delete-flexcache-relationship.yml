@@ -1,5 +1,5 @@
 - hosts: localhost
-  name: Remove Flexcache Relationship
+  name: Delete Flexcache Relationship
   gather_facts: false
   vars:
     ontap: &ontap
@@ -8,6 +8,7 @@
       password:       "{{ netapp_password }}"
       https:          true
       validate_certs: false
+      use_rest: "always"
   vars_files:
     - var_demo.yml
   collections:
