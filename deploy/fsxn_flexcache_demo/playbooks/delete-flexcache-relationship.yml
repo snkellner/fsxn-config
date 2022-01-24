@@ -18,6 +18,8 @@
         state: absent
         peer_vserver: "{{ dst_vserver }}"
         vserver: "{{ src_vserver }}"
+        local_name_for_peer: "{{ dst_vserver }}"
+        local_name_for_source: "{{ src_vserver }}"       
         peer_options:
           hostname: "{{ dst_ontap }}"
         <<: *ontap
