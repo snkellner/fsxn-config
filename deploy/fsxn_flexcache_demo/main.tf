@@ -78,15 +78,6 @@ resource "aws_fsx_ontap_storage_virtual_machine" "svm_demo02" {
   file_system_id = aws_fsx_ontap_file_system.skellnerdemo02.id
   name           = "svm_${var.fs_name}02"
 
-  active_directory_configuration {
-    netbios_name = "${var.fs_name}02"
-    self_managed_active_directory_configuration {
-      dns_ips     = var.dns_ips
-      domain_name = var.domain_name
-      password    = var.ad_password
-      username    = var.ad_username
-    }
-  }
 }
 
 resource "aws_fsx_ontap_volume" "vol_skdemo02" {
@@ -94,7 +85,7 @@ resource "aws_fsx_ontap_volume" "vol_skdemo02" {
   junction_path              = "/vol_${var.fs_name}02"
   size_in_megabytes          = 1024
   storage_efficiency_enabled = true
-  security_style             = "NTFS"
+  security_style             = "UNIX"
   storage_virtual_machine_id = aws_fsx_ontap_storage_virtual_machine.svm_demo02.id
 
   tiering_policy {
