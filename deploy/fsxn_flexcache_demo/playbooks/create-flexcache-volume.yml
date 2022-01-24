@@ -16,8 +16,8 @@
     - name: Create FlexCache
       na_ontap_flexcache:
         state: present
-        origin_volume: test_src
-        name: test_dest
+        origin_volume: "{{ test_src}}"
+        name: "{{ test_dest }}"
         size: "{{ flexcache_size_gb }}"
         size_unit: "gb"
         prepopulate:
