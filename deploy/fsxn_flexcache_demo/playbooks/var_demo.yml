@@ -18,5 +18,5 @@ peer_cluster: "FsxId092d3dcdeb87ca58b"
 # flexcache variables
 origin_volume: "vol_skdemo01"
 flexcache_volume: "vol_flexcache01"
-flexcache_size_gb: 10
+flexcache_size_gb: 1
 # source_cluster_name: "fs-0d9db2c96ed0280a9"
