@@ -18,8 +18,9 @@
         state: absent
         peer_vserver: "{{ dst_vserver }}"
         vserver: "{{ src_vserver }}"
+        peer_options:
+          hostname: "{{ dst_ontap }}"
         <<: *ontap
-        use_rest: "never"
     - name: Delete cluster peer
       na_ontap_cluster_peer:
         state: absent
